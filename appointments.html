@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Appointment Details</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<!-- ================= Reused Modal ================= -->
+<div class="modal" id="appointmentModal">
+  <div class="modal-content">
+    <h3>Schedule Appointment</h3>
+
+    <form id="appointmentForm" class="form-grid">
+
+      <div class="input-group">
+        <span class="icon">👤</span>
+        <input id="patientName" required placeholder="Patient Name" />
+      </div>
+
+      <div class="input-group">
+        <span class="icon">👨‍⚕️</span>
+        <input id="doctorName" required placeholder="Doctor Name" />
+      </div>
+
+      <div class="input-group">
+        <span class="icon">📍</span>
+        <input id="hospitalName" placeholder="Hospital Name" />
+      </div>
+
+      <div class="input-group">
+        <span class="icon">🩺</span>
+        <input id="specialty" placeholder="Specialty" />
+      </div>
+
+      <div class="input-group">
+        <span class="icon">📅</span>
+        <input id="appointmentDate" type="date" required />
+      </div>
+
+      <div class="input-group">
+        <span class="icon">⏰</span>
+        <input id="appointmentTime" type="time" required />
+      </div>
+
+      <div class="input-group full">
+        <textarea id="reason" placeholder="Reason"></textarea>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="deleteAppointment">Delete</button>
+        <button type="button" id="closeModal">Cancel</button>
+        <button type="submit">Save</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ================= App Layout ================= -->
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="CAPMINDS Logo" class="brand-logo">
+      <span class="brand-text">CAPMINDS</span>
+    </div>
+
+    <a href="index.html" class="nav-item">📅 Calendar</a>
+    <a href="appointments.html" class="nav-item active">📋 Appointment List</a>
+  </aside>
+
+  <main class="main">
+    <header class="header">
+      <h3>Appointment Details</h3>
+      <button id="openModalBtn">+ Book Appointment</button>
+    </header>
+
+    <!-- Filters -->
+    <section style="padding:20px; display:flex; gap:12px; flex-wrap:wrap">
+      <input type="text" id="patientSearch" placeholder="Search Patient">
+      <input type="text" id="doctorSearch" placeholder="Search Doctor">
+      <input type="date" id="fromDate">
+      <input type="date" id="toDate">
+      <button id="clearFilters">Clear Filters</button>
+    </section>
+
+    <!-- Table -->
+    <section style="padding:20px">
+      <table class="appointment-table">
+        <thead>
+          <tr>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Hospital</th>
+            <th>Specialty</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="appointmentTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+</div>
+
+<!-- Scripts -->
+<script src="js/calendar.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/appointments.js"></script>
+
+</body>
+</html>
